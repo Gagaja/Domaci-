@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <p id="regards"></p>
+    </header>
+
+    <div class="page-content">
+        <h1 class="main-title"> JS domaći </h1>
+        <h2 class="main-subtitle">If i else - feat - Pozovite sve katre</h2>
+        <div class="zadatak1">
+            <h3>Generiši broj</h3>
+            <section>
+                <p id="random-number">Broj</p>
+                <button id="random" class="btn">Generiši broj</button>
+                <p id="even"></p>
+                <p id="even-number" class="txt-bold"></p>
+            </section>
+        </div>
+        <div class="zadatak2">
+            <h3>Koliko imaš godina?</h3>
+            <section>
+                <label for="age">Koliko imaš godina?</label>
+                <br>
+                <input type="text" name="age" id="age">
+                <br>
+                <button id="age-but" class="btn">U redu</button>
+                <p id="age-out" class="txt-bold"></p>
+            </section>
+        </div>
+        <div class="zadatak3">
+            <h3>Kako se zoveš?</h3>
+            <section>
+                <label for="name">Kako se zoveš?</label>
+                <br>
+                <input type="text" name="age" id="name">
+                <br>
+                <button id="name-but" class="btn">U redu</button>
+                <p id="name-out" class="txt-bold"></p>
+            </section>
+        </div>
+        <div class="zadatak4">
+            <h3>Koji je danas dan?</h3>
+            <section>
+                <p>
+                    Koji je danas dan?
+                </p>
+                <br>
+                <button id="day-but" class="btn">Saznaj</button>
+                <p id="day" class="txt-bold"></p>
+            </section>
+        </div>
+        <div class="zadatak5">
+            <h3>Školske generacije</h3>
+            <section class="school">
+                <p>Pogledaj listu školskih generacija</p>
+                <button id="school-generation" class="btn">Generiši listu</button>
+                <section id="generation-list">
+
+                </section>
+            </section>
+        </div>
+        <div class="zadatak6">
+            <h3>Pozovite samo dvojke</h3>
+            <section class="card2">
+
+
+                <button id="card-but" class="btn">Pozovite samo dvojke</button>
+                <section id="cards-out">
+
+                </section>
+            </section>
+        </div>
+        <div class="zadatak7">
+            <h3>Pozovite sve karte</h3>
+            <section class="all-card2">
+
+
+                <button id="all-cards" class="btn">Pozovite sve karte</button>
+                <section id="all-cards-out">
+
+                </section>
+            </section>
+        </div>
+        <div class="zadatak8">
+            <h3>Pozovite samo srce karte</h3>
+            <section class="herc-card2">
+
+
+                <button id="herc-cards" class="btn">Pozovite samo srce karte</button>
+                <section id="herc-cards-out">
+
+                </section>
+            </section>
+        </div>
+        <div class="zadatak9">
+            <h3>Pozovite nasumične karte</h3>
+            <section class="random-card2">
+
+
+                <button id="random-cards" class="btn">Pozovite nasumične karte</button>
+                <section id="random-cards-out">
+
+                </section>
+            </section>
+        </div>
+        <div class="zadatak10">
+            <h3>Pozovite četiri karte</h3>
+            <section class="four-card2">
+
+
+                <button id="four-cards" class="btn">Pozovite četiri karte</button>
+                <section id="four-cards-out">
+
+                </section>
+            </section>
+        </div>
+        <div class="zadatak11">
+            <h3>Uporedi dve karte iz tablića</h3>
+            <section class="compare-card">
+
+
+                <button id="compare-cards" class="btn">Uporedi dve karte iz tablića</button>
+                <section id="compare-cards-out">
+
+                </section>
+                <p id="result" class="txt-bold"></p>
+            </section>
+        </div>
+        <div id="zadatak12">
+            <h3>Izaberi godinu rođenja</h3>
+            <section id="year">
+
+
+                <label for="choose-year">Izaberite godinu:</label>
+                <br>
+                <select name="choose-year" id="choose-year"></select>
+
+            </section>
+
+            </section>
+        </div>
+        
+    </div>
+
+    <footer></footer>
+
+    <script>
+        var datum = new Date();
+        var sati = datum.getHours();
+        if (sati >= 5 && sati < 10) {
+            document.getElementById("regards").innerHTML = "Dobro jutro dobri ljudi";
+            document.getElementById("age-out").style.color = "#015226";
+        }
+        else if (sati < 19 && sati > 9) {
+            document.getElementById("regards").innerHTML = "Dobar dan dobri ljudi";
+            document.getElementById("age-out").style.color = "#015226";
+        }
+        else {
+            document.getElementById("regards").innerHTML = "Dobro veče dobri ljudi";
+            document.getElementById("age-out").style.color = "#015226";
+        }
+        document.getElementById("random").addEventListener("click", function () {
+            var randomNumber = Math.floor(Math.random() * 10 + 1);
+            document.getElementById("random-number").innerHTML = `Broj ${randomNumber}`;
+            if (randomNumber % 2 == 0) {
+                document.getElementById("even").innerHTML = `Broj ${randomNumber} je paran`;
+            }
+            else {
+                document.getElementById("even").innerHTML = `Broj ${randomNumber} je neparan`;
+            }
+            if (randomNumber > 3) {
+                document.getElementById("even-number").innerHTML = `Broj ${randomNumber} je veći od 3`;
+            }
+            else if (randomNumber == 3) {
+                document.getElementById("even-number").innerHTML = `Broj ${randomNumber} je jednako 3`;
+            }
+            else {
+                document.getElementById("even-number").innerHTML = `Broj ${randomNumber} je manji od 3`;
+            }
+        }
+        );
+        document.getElementById("age-but").addEventListener("click", function () {
+            var age = document.getElementById("age").value;
+            if (age >= 18) {
+                document.getElementById("age-out").innerHTML = `Dozvoljen pristup!`;
+            }
+            else {
+                document.getElementById("age-out").innerHTML = `Zabranjen pristup!`;
+            }
+            document.getElementById("age-out").style.color = "#015226";
+        }
+        );
+        document.getElementById("name-but").addEventListener("click", function () {
+            var name = document.getElementById("name").value;
+            if (name == "Dragan" || name == "Uroš" || name == "Mia" ||
+                name == "Sanja" || name == "Miloš" || name == "Marko" || name == "Žarko" ||
+                name == "Tadija" || name == "Mitar")
+
+                document.getElementById("name-out").innerHTML = `Na listi si!`
+            else {
+                document.getElementById("name-out").innerHTML = `Nisi na listi si!`
+            }
+            document.getElementById("name-out").style.color = "#015226";
+        });
+        document.getElementById("day-but").addEventListener("click", function () {
+
+            var datum = new Date();
+            var datumDan = datum.getDay();
+            var sedmica = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            document.getElementById("day").innerHTML = sedmica[datumDan - 1];
+            document.getElementById("day").style.color = "#015226";
+        }
+        );
+        document.getElementById("school-generation").addEventListener("click", function () {
+            var liste = "<ul>";
+
+
+            for (var i = 1935; i < 2070; i++) {
+                liste = liste + "<li><a href=`#`>" + i + "<a></li>";
+            }
+            liste += "</ul>";
+            document.getElementById("generation-list").innerHTML = liste;
+            document.getElementById("generation-list").style.color = "#015226";
+        });
+
+        document.getElementById("card-but").addEventListener("click", function () {
+            var dvojke = "";
+            var slovoZaZnak = "";
+            for (brojKarte = 0; brojKarte < 4; brojKarte++) {
+                if (brojKarte == 0) {
+                    slovoZaZnak = "C";
+                }
+                else if (brojKarte == 1) {
+                    slovoZaZnak = "D";
+                }
+                else if (brojKarte == 2) {
+                    slovoZaZnak = "H";
+                }
+                else {
+                    slovoZaZnak = "S";
+                }
+                dvojke = dvojke + `<img src="karte/2${slovoZaZnak}.png" alt="karta-srce" width="90px">`;
+                document.getElementById("cards-out").innerHTML = dvojke;
+
+            }
+        });
+        document.getElementById("all-cards").addEventListener("click", function () {
+            var sveKarte = "";
+            slovoZaZnak = "";
+            for (i = 0; i < 4; i++) {
+                if (i == 0) {
+                    slovoZaZnak = "C";
+                }
+                else if (i == 1) {
+                    slovoZaZnak = "D";
+                }
+                else if (i == 2) {
+                    slovoZaZnak = "H";
+                }
+                else {
+                    slovoZaZnak = "S";
+                }
+                for (brojKarte = 1; brojKarte < 15; brojKarte++) {
+                    if (brojKarte != 11) {
+                        sveKarte = sveKarte + `<img src="karte/${brojKarte + slovoZaZnak}.png" alt="karta-srce" width="70px">`;
+                        document.getElementById("all-cards-out").innerHTML = sveKarte;
+                    }
+                }
+            }
+        });
+        document.getElementById("herc-cards").addEventListener("click", function () {
+            var srca = "";
+            for (i = 1; i < 15; i++) {
+                if (i != 11) {
+                    srca = srca + `<img src="karte/${i}H.png" alt="karta-srce" width="80px">`;
+                    document.getElementById("herc-cards-out").innerHTML = srca;
+                }
+            }
+        });
+        var slovoZaZnak = "";
+        var brojKarte = "";
+
+        function randomCard() {
+            var xx = Math.floor(Math.random() * 14 + 1);
+            var yy = Math.floor(Math.random() * 4 + 1);
+            if (xx == 11) {
+                return randomCard();
+            }
+            else if (yy == 1) {
+                slovoZaZnak = "C";
+            }
+            else if (yy == 2) {
+                slovoZaZnak = "D";
+            }
+            else if (yy == 3) {
+                slovoZaZnak = "H";
+            }
+            else {
+                slovoZaZnak = "S";
+            }
+            brojKarte = xx;
+        }
+
+        function randomZnak() {
+            randomCard();
+            var slovoZaZnakTekst = "";
+            if (slovoZaZnak == "C") {
+                slovoZaZnakTekst = "Generisali ste tref!";
+            }
+            else if (slovoZaZnak == "D") {
+                slovoZaZnakTekst = "Generisali ste karo!";
+            }
+            else if (slovoZaZnak == "H") {
+                slovoZaZnakTekst = "Generisali ste srce!";
+            }
+            else if (slovoZaZnak == "S") {
+                slovoZaZnakTekst = "Generisali ste pik!";
+            }
+            document.getElementById("random-cards-out").innerHTML = `<h3>${slovoZaZnakTekst}</h3><img src="karte/${brojKarte + slovoZaZnak}.png" alt="karta-srce" width="100px">`;
+        }
+        document.getElementById("random-cards").addEventListener("click", function () {
+            randomZnak();
+        });
+
+        function randomCheck(card1, card2, card3, card4) {
+            randomCard();
+            card = `<img src="karte/${brojKarte + slovoZaZnak}.png" alt="karta-srce" width="100px">`;
+            if (card == card1 || card == card2 || card == card3 || card == card4) {
+                randomCheck(card1, card2, card3, card4);
+            }
+        }
+
+        function randomFourCards() {
+            var fourCards = "";
+            var card = "";
+            var card1 = "";
+            var card2 = "";
+            var card3 = "";
+            var card4 = "";
+            for (i = 0; i < 4; i++) {
+                randomCheck(card1, card2, card3, card4);
+                fourCards = fourCards + `<img src="karte/${brojKarte + slovoZaZnak}.png" alt="karta-srce" width="100px">`;
+                document.getElementById("four-cards-out").innerHTML = fourCards;
+                if (i == 0) {
+                    card1 = card;
+                }
+                else if (i == 1) {
+                    card2 = card;
+                }
+                else if (i == 1) {
+                    card3 = card;
+                }
+                else {
+                    card4 = card;
+                }
+            }
+        }
+        document.getElementById("four-cards").addEventListener("click", function () {
+            randomFourCards();
+        });
+        function compareTablic(firstCard, secondCard) {
+            if (firstCard > secondCard) {
+                document.getElementById("result").innerHTML = "Prva karta je veća!";
+            }
+            else if (firstCard < secondCard) {
+                document.getElementById("result").innerHTML = "Druga karta je veća!";
+            }
+            else {
+                document.getElementById("result").innerHTML = "Karte su jednake!";
+            }
+        }
+
+        function generateTablic(card, card1, firstCard, secondCard, twoCards) {
+            for (i = 0; i < 2; i++) {
+                function randomCheckC() {
+                    randomCard();
+                    card = `<img src="karte/${brojKarte + slovoZaZnak}.png" alt="karta-srce" width="100px">`;
+                    if (card == card1) {
+                        randomCheckC();
+                    }
+                }
+                randomCheckC();
+                twoCards = twoCards + card;
+                document.getElementById("compare-cards-out").innerHTML = twoCards;
+                if (brojKarte == 1) {
+                    brojKarte = 15;
+                }
+                if (i == 0) {
+                    firstCard = brojKarte;
+                }
+                else {
+                    secondCard = brojKarte;
+                }
+            }
+            compareTablic(firstCard, secondCard);
+        }
+
+        document.getElementById("compare-cards").addEventListener("click", function () {
+            var card = "";
+            var card1 = "";
+            var firstCard = 0;
+            var secondCard = 0;
+            var twoCards = "";
+            generateTablic(card, card1, firstCard, secondCard, twoCards);
+            document.getElementById("result").style.color = "#015226";
+        });
+        var listaGodina = "";
+        for (i = 1900; i < 2010; i++) {
+            listaGodina = listaGodina + `<option value="${i}">${i}</option>`;
+            document.getElementById("choose-year").innerHTML = listaGodina;
+        };
+
+    </script>
+
+</body>
+
+</html>
